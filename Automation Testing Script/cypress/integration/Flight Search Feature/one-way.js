@@ -12,8 +12,10 @@ describe('Air Blue - Search Feature', () => {
         .click(); // arrival 
 
         cy.get('.city-swap').click(); //swap btn
+        
+        let weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()]
 
-        cy.get('[before="Friday"] > .vc-appearance-none').click()
+        cy.get('[before="' + weekday + '"] > .vc-appearance-none').click()
         .get('.vc-grid-cell-row-5.vc-grid-cell-col-7 > .vc-day > .vc-h-full > .vc-day-content')
         .first().click(); // depart-date
 
@@ -33,18 +35,6 @@ describe('Air Blue - Search Feature', () => {
             cy.get('.infant > .plus-minus-input > .plus-minus-input-field > .plus-input').click(); // add-infant
         }
         cy.get('.infant > .plus-minus-input > .plus-minus-input-field > .minus-input').click(); // minus-infant
-
-        // cy.get('.adult > .plus-minus-input > .plus-minus-input-field > .plus-input').click(); // add-adult
-        // cy.get('.adult > .plus-minus-input > .plus-minus-input-field > .plus-input').click(); // add-adult
-        // cy.get('.adult > .plus-minus-input > .plus-minus-input-field > .minus-input').click(); // minus-adult
-
-        // cy.get('.child > .plus-minus-input > .plus-minus-input-field > .plus-input').click(); // add-child
-        // cy.get('.child > .plus-minus-input > .plus-minus-input-field > .plus-input').click(); // add-child
-        // cy.get('.child > .plus-minus-input > .plus-minus-input-field > .minus-input').click(); // minus-child
-
-        // cy.get('.infant > .plus-minus-input > .plus-minus-input-field > .plus-input').click(); // add-infant
-        // cy.get('.infant > .plus-minus-input > .plus-minus-input-field > .plus-input').click(); // add-infant
-        // cy.get('.infant > .plus-minus-input > .plus-minus-input-field > .minus-input').click(); // minus-infant
 
         cy.get('.action > button').click();
 

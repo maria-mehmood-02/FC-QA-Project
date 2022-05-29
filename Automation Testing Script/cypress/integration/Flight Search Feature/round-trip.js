@@ -12,12 +12,16 @@ describe('Air Blue - Search Feature', () => {
         .click(); // arrival 
 
         cy.get('.city-swap').click(); //swap btn
-
-        cy.get('[before="Friday"] > .vc-appearance-none').click()
+        
+        let weekday1 = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()]
+        
+        cy.get('[before="' + weekday1 + '"] > .vc-appearance-none').click()
         .get('.vc-grid-cell-row-5.vc-grid-cell-col-7 > .vc-day > .vc-h-full > .vc-day-content')
         .first().click(); // depart-date
 
-        cy.get('.return > [before="Saturday"] > .vc-appearance-none').click()
+        let weekday2 = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()+1]
+        
+        cy.get('.return > [before="' + weekday2 + '"] > .vc-appearance-none').click()
         .get('.vc-grid-cell-row-6.vc-grid-cell-col-3 > .vc-day > .vc-h-full > .vc-day-content')
         .last().click() // arrive-date
 

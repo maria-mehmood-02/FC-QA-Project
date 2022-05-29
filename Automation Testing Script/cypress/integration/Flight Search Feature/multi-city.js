@@ -14,8 +14,9 @@ describe('Air Blue - Search Feature', () => {
         .eq(0).click(); // arrival 1
 
         cy.get('.segment-1 > .transition-expand-content > .trip > .cities > .city-swap').click(); //swap btn
+        let weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()]
 
-        cy.get('[before="Saturday"] > .vc-appearance-none').click()
+        cy.get('[before="' + weekday + '"] > .vc-appearance-none').click()
         .get('.vc-grid-cell-row-6.vc-grid-cell-col-1 > .vc-day > .vc-h-full > .vc-day-content')
         .first().click(); // depart1-date
 
