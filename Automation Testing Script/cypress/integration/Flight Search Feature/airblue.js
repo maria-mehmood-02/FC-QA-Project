@@ -1,6 +1,7 @@
 describe('Air Blue - Search Feature', () => {
     it('One Way', () => {
         cy.visit('https://www.airblue.com/');
+        // cy.visit('https://www.airblue.com/');
 
         cy.get('.one-way > label > span').click(); // One way
 
@@ -63,8 +64,10 @@ describe('Air Blue - Search Feature', () => {
         .get('.vc-grid-cell-row-5.vc-grid-cell-col-7 > .vc-day > .vc-h-full > .vc-day-content')
         .first().click(); // depart-date
         
-        let weekday2 = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()+1]
+        let weekday2 = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()+2]
         
+        cy.wait(2000);
+
         cy.get('.return > [before="' + weekday2 + '"] > .vc-appearance-none').click()
             .get('.vc-grid-cell-row-6.vc-grid-cell-col-3 > .vc-day > .vc-h-full > .vc-day-content')
             .last().click() // arrive-date
